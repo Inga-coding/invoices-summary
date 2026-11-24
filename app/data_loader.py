@@ -1,5 +1,5 @@
 from app.config import INVOICES_FILE
-from app.exceptions import InvalidAmountError
+from app.exceptions import IdentificationError, InvalidAmountError
 
 def load_invoices():
     invoices = []
@@ -7,9 +7,8 @@ def load_invoices():
     if not INVOICES_FILE.exists():
         raise FileNotFoundError(f"Файл не знайдено за шляхом: {INVOICES_FILE}")
 
-    file = open(INVOICES_FILE, mode="r", encoding="utf-8")
-    lines = file.readlines()
-    file.close() 
+    with open(INVOICES_FILE, mode="r", encoding="utf-8") as file:
+        lines = file.readlines()
         
     for index, line in enumerate(lines[1:], start=2):
         try:
