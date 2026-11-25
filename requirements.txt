@@ -1,1 +1,3 @@
-# Проєкт використовує лише стандартну бібліотеку Python
+streamlit
+pandas
+pytest

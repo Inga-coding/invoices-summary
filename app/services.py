@@ -1,4 +1,3 @@
-from app.data_loader import load_invoices
 
 def calculate_total_amount(invoices):
     total = 0
